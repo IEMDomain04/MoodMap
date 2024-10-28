@@ -1,6 +1,22 @@
 /* === Imports === */
+import { initializeApp } from "firebase/app";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 /* === Firebase Setup === */
+const firebaseConfig = {
+    apiKey: "AIzaSyCWKtiStrKF3Xwiwt49OjCmlsCOOEtGRgQ",
+    authDomain: "moodmap-281cc.firebaseapp.com",
+    projectId: "moodmap-281cc",
+    storageBucket: "moodmap-281cc.appspot.com",
+    messagingSenderId: "1031217572939",
+    appId: "1:1031217572939:web:4215e98abcf850c5e0b1ce",
+    measurementId: "G-VNGDJWC8LW"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
 
 /* === UI === */
 
@@ -41,7 +57,16 @@ function authSignInWithEmail() {
 }
 
 function authCreateAccountWithEmail() {
-    console.log("Sign up with email and password")
+    const email = emailInputEl.value
+    const password = passwordInputEl.value
+
+    createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            showLoggedInView()
+        })
+        .catch((error) => {
+            console.error(error.message)
+        })
 }
 
 /* == Functions - UI Functions == */
