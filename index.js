@@ -8,16 +8,13 @@ const firebaseConfig = {
     authDomain: "moodmap-281cc.firebaseapp.com",
     projectId: "moodmap-281cc",
     storageBucket: "moodmap-281cc.appspot.com",
-    messagingSenderId: "1031217572939",
-    appId: "1:1031217572939:web:4215e98abcf850c5e0b1ce",
-    measurementId: "G-VNGDJWC8LW"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-
+console.log(app)
 /* === UI === */
 
 /* == UI - Elements == */
